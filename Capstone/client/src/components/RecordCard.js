@@ -10,7 +10,7 @@ class CommentCard extends Component {
 
     handleDelete = (id) => {
         API.delete(id, "records")
-            .then(() => this.props.getData());
+            .then(() => this.props.getCompulsionAndPatientsRecordData());
     }
 
 
@@ -21,11 +21,11 @@ class CommentCard extends Component {
             <div>
                 <Card className="mainCard">
                     <CardBody>
-                        <CardTitle>{this.props.record.}</CardTitle>
-                        <CardText>Posted: {timeStamp}  </CardText >
+                        <CardTitle>{this.props.record.id}</CardTitle>
+                        <CardText> {timeStamp}  </CardText >
                         
                         <Row className="buttonFlex">
-                            <Button className="button" type="button" onClick={() => this.handleDelete(this.props.comment.id)}><FaRegTrashAlt /></Button>
+                            <Button className="button" type="button" onClick={() => this.handleDelete(this.props.record.id)}><FaRegTrashAlt /></Button>
                         </Row>
                     </CardBody>
                 </Card>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import RecordCard from '../components/RecordCard'
 import API from '../API/dataManager'
 
-class CommentList extends Component {
+class RecordList extends Component {
 
     state = {
         compulsion: [],
@@ -11,7 +11,7 @@ class CommentList extends Component {
 
     
 //(https://localhost:5001/api/v1/Compulsion/1?includes=ecords)
-.getCompulsionAndPatientsRecordData = () => {
+getCompulsionAndPatientsRecordData = () => {
         API.getOneResourceWithChild("Compulsion",this.props.match.params.CompulsionId,"Records").then((data) => {
 			this.setState({
                 compulsion: data,
@@ -27,7 +27,7 @@ class CommentList extends Component {
 
     render() {
 	
-		return (
+		return (     
 					<div  className='mainContainer'>
                         	{this.state.compulsion.map(compulsion => (
                     <compulsionCard
@@ -57,4 +57,4 @@ class CommentList extends Component {
 
 
 
-} export default CommentList 
+} export default RecordList 

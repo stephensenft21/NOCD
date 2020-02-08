@@ -5,12 +5,13 @@ import { FaRegTrashAlt } from "react-icons/fa";
 
 import "./CommentCard.css"
 
-class CommentCard extends Component {
+class CompulsionCard extends Component {
    
 
     handleDelete = (id) => {
         API.delete(id, "compulsion")
-            .then(() => this.props.getCompulsionAndPatientsRecordData());
+            .then(() => this.props.getCompulsionAndPatientsRecordData();
+            //this method needs to change to push back to the welcome view after deletion or chart view havent decided yet
     }
 
 
@@ -34,4 +35,4 @@ class CommentCard extends Component {
     }
 }
 
-export default CommentCard;
+export default CompulsionCard;
