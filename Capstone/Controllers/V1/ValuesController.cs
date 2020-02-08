@@ -5,7 +5,7 @@ using Capstone.Routes.V1;
 namespace Capstone.Controllers.V1
 {
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class ValuesController : ControllerBase
     {
         public ValuesController()
@@ -15,7 +15,7 @@ namespace Capstone.Controllers.V1
         [HttpGet(Api.Values.GetAll)]
         public IActionResult GetAll()
         {
-            var values = new[] { "value 1", "value 2", "value 3" };
+            var values = new[] { "Hello", "value 2", "value 3" };
             return Ok(values);
         }
 

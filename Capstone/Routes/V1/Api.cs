@@ -27,10 +27,10 @@ namespace Capstone.Routes.V1
 
 
             // Query string variables
-            public const string records = "records";
-            public const string submit = "submit";
-            public const string resist = "resist";
-            public const string undo = "undo";
+            public const string records = "Records";
+            public const string submit = "Submit";
+            public const string resist = "Resist";
+            public const string undo = "Undo";
 
         }
 

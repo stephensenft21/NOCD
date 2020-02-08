@@ -23,7 +23,7 @@ class Home extends Component {
         <h1>Welcome to my app</h1>
         <ul>
           {
-            this.state.values.map(value => <li>{value}</li>)
+            this.state.values.map(value => <li> {value}</li>)
           }
         </ul>
       </>
