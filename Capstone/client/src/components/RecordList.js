@@ -13,6 +13,7 @@ class RecordList extends Component {
 //(https://localhost:5001/api/v1/Compulsion/1?includes=ecords)
 getCompulsionAndPatientsRecordData = () => {
         API.getOneResourceWithChild("Compulsion",this.props.match.params.CompulsionId,"Records").then((data) => {
+            console.log(data)
 			this.setState({
                 compulsion: data,
                 records: data
