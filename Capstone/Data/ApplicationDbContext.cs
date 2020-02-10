@@ -29,9 +29,7 @@ namespace Capstone.Data
 
             ApplicationUser user = new ApplicationUser
             {
-                FirstName = "admin",
-                LastName = "admin",
-                StreetAddress = "123 Infinity Way",
+               
                 UserName = "admin@admin.com",
                 NormalizedUserName = "ADMIN@ADMIN.COM",
                 Email = "admin@admin.com",

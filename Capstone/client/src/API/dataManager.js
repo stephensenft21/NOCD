@@ -32,7 +32,7 @@ let API = {
     //(https://localhost:5001/api/v1/Compulsion/1?includes=records)
     PostData(resource, newObj) {
         const authHeader = createAuthHeaders()
-        return fetch(`${baseUrl}${resource}`, {
+        return fetch(`${baseUrl}/${resource}`, {
             method: "POST",
             body: JSON.stringify(newObj),
             headers: {
