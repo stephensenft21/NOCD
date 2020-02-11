@@ -5,7 +5,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Home from './components/Home';
 import { getUser, removeUser } from './API/userManager';
-import API from './API/dataManager'
+
 import './App.css';
 
 class App extends Component {

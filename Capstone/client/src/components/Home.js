@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import moment from "moment";
 import API from "../API/dataManager";
 import Snackbar from "@material-ui/core/Snackbar";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import InputLabel from "@material-ui/core/InputLabel";
+import SimpleSelect from "../components/AlertComponent/MaterialDropDown";
 class Home extends Component {
   moment = moment().format("MMMM Do YYYY, h:mm:ss a");
   state = {
@@ -41,9 +46,7 @@ class Home extends Component {
 
       API.PostData("Compulsions", newCompulsion).then(() =>
         API.getAll("Compulsions").then(data =>
-          this.setState({ compulsions: data,
-            open:true
-           })
+          this.setState({ compulsions: data, open: true })
         )
       );
     }
@@ -61,44 +64,34 @@ class Home extends Component {
   }
 
   render() {
-   
-     
     return (
       <>
-        <h1>Hey add a compulsion</h1>
+        <h1>How are you feeling today?</h1>
         <div>
           <form>
-          <Snackbar
-          
-               anchorOrigin={{
-                 vertical: "bottom",
-                 horizontal: "left"
-               }}
-               
-               bodyStyle={{ backgroundColor: 'teal', color: 'coral' }}  
-               open={this.state.open}
-               autoHideDuration={6000}
-               message="Great job! You added a new compulsion!"
-             />
+            <Snackbar
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "left"
+              }}
+              open={this.state.open}
+              autoHideDuration={6000}
+              message="Great job! You added a new compulsion!"
+            />
             {this.state.compulsions.length > 0 ? (
               <>
-              <select id="compulsionId" onChange={this.handleNumberfieldChange}>
-                {this.state.compulsions.map(compulsion => (
-                  <option
-                    key={compulsion.compulsionId}
-                    value={compulsion.compulsionId}
-                  >
-                    {compulsion.description}
-                  </option>
-                ))}
-              </select>
-
+                {" "}
+                <SimpleSelect
+                  onChange={this.handleNumberfieldChange}
+                  compulsions={this.state.compulsions}
+                  compulsionId={this.state.compulsionId}
+                  {...this.props}
+                />
               </>
             ) : (
               <>
                 <input
                   id="description"
-                  
                   onChange={this.handleFieldChange}
                 ></input>
 
@@ -108,15 +101,7 @@ class Home extends Component {
                   type="button"
                   onClick={this.MakeANewCompulsion}
                 >
-                  <Snackbar
-                    anchorOrigin={{
-                      vertical: "bottom",
-                      horizontal: "left"
-                    }}
-                    open={this.state.open}
-                    autoHideDuration={6000}
-                    message="Great job! You added a new compulsion!"
-                  />
+  
                   Submit
                 </button>
               </>
