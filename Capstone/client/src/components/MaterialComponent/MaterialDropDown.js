@@ -18,27 +18,29 @@ const useStyles = makeStyles(theme => ({
 
 export default function SimpleSelect(props) {
   const classes = useStyles();
-  const [compulsionId, setAge] = React.useState("");
+   const [compulsionId, setCount] = React.useState("");
 
-  const handleChange = event => {
-    setAge(event.target.value);
-  };
+   const handleChange = event => {
+     setCount(event.target.value);
+     console.log(event.target)
+   };
 
   return (
     <div>
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-simple-select-helper-label">Compulsion</InputLabel>
         <Select
+        name={props.compulsion}
           labelId="compulsionId"
           id="compulsionId"
           value={compulsionId}
-          onChange={() => {
-            handleChange();
-            props.handleNumberfieldChange();
+          onChange={(e) => {
+           handleChange(e)
+            props.handleNumberfieldChange(e);
           }}
         >
-          {props.compulsions.map(compulsion => (
-            <MenuItem key={props.compulsionId} value={compulsion.compulsionId}>
+          {props.compulsions.map((compulsion, i) => (
+            <MenuItem key={i} value={compulsion.compulsionId}>
               {compulsion.description}
             </MenuItem>
           ))}

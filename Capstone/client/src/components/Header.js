@@ -8,8 +8,8 @@ function Header(props) {
         {
           props.user ? (
             <>
-              <li className="nav-item"><Link to="/login">NewLink </Link></li>
-              <li className="nav-item"><Link to="/dashboard">PatientData</Link></li>
+              <li className="nav-item"><Link to="/Compulsions">Compulsions </Link></li>
+              <li className="nav-item"><Link to="/PatientData">PatientData</Link></li>
               <li className="nav-item"><Link to="/RecordList">Records</Link></li>
               <li className="nav-item" onClick={props.logout}>Log out</li>
             </>
