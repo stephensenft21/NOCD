@@ -14,11 +14,7 @@ namespace Capstone.Models.Data
     public class ApplicationUser : IdentityUser
     {
         
-        [Required]
-        [Display(Name ="First Name")]
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string StreetAddress { get; set; }
+
         
 
         public virtual ICollection<Compulsion> Compulsions { get; set; }
