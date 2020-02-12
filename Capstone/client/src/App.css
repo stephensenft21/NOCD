@@ -36,3 +36,9 @@
 .App-link {
   color: #09d3ac;
 }
+.logo {
+  align-self: center;
+  padding-left: 5em;
+  height: 15em;
+  width: auto;
+}

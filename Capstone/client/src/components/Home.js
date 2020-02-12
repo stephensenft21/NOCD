@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {withRouter} from 'react-router-dom'
 import moment from "moment";
+
 import API from "../API/dataManager";
 import {CircularIntegration} from "./MaterialComponent/MaterialSubmitButton";
 import {HomeSnackbar} from "./MaterialComponent/MaterialSnackBar";
@@ -70,7 +71,11 @@ class Home extends Component {
   render() {
     return (
       <>
- 
+        <img
+                            src={require("./IMG/logo.png")}
+                            className="logo"
+                            alt="NoCD"
+                        />
         <h1>How are you feeling today?</h1>
         <div>
           <form autoComplete="off">
@@ -92,9 +97,10 @@ class Home extends Component {
                   {...this.props}
                   key={this.compulsionId}
                 />
+                
                 <CompulsionsInStateInputField
                   handleFieldChange={this.handleFieldChange}
-                />
+                /> 
                 {/* This Component below is the save button for the input field above */}
                 <CircularIntegration
                   MakeANewCompulsion={this.MakeANewCompulsion}

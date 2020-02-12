@@ -7,7 +7,7 @@ class RecordCard extends Component {
    
 
     handleDelete = (id) => {
-        API.deleteUserData("records",id)
+        API.deleteUserData("Records",id)
             .then(() => this.props.getCompulsionAndPatientsRecordData())
     }
 

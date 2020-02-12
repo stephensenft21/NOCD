@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import RecordCard from "../components/RecordCard";
 import API from "../API/dataManager";
 import CompulsionCard from "../components/CompulsionCard";
-import theme from "../theme";
+import './RecordList.css'
 
 class RecordList extends Component {
   state = {
@@ -28,7 +28,7 @@ class RecordList extends Component {
   componentDidMount() {
     this.getCompulsionAndPatientsRecordData();
   }
-
+  
   render() {
     return (
       <div>
@@ -40,6 +40,8 @@ class RecordList extends Component {
         />
 
         <div />
+          <div className="cardContainer">
+            
         <div className="sectionHeader">
           <h1>Patient Action Undo</h1>
           {this.state.records
@@ -48,11 +50,12 @@ class RecordList extends Component {
             })
             .map((filteredRecord, i) => (
               <RecordCard
+              getCompulsionAndPatientsRecordData={this.getCompulsionAndPatientsRecordData}
                 key={i}
                 record={filteredRecord}
                 {...this.props}
                 getData={this.getData}
-              />
+                />
             ))}
         </div>
         <div className="sectionHeader">
@@ -63,13 +66,13 @@ class RecordList extends Component {
             })
             .map((filteredRecord, i) => (
               <RecordCard
-                
-                key={i}
-                record={filteredRecord}
-                {...this.props}
-                getData={this.getData}
+              getCompulsionAndPatientsRecordData={this.getCompulsionAndPatientsRecordData}
+              key={i}
+              record={filteredRecord}
+              {...this.props}
+              getData={this.getData}
               />
-            ))}
+              ))}
         </div>
         <div className="sectionHeader">
           <h1>Patient Action Resists</h1>
@@ -79,14 +82,16 @@ class RecordList extends Component {
             })
             .map((filteredRecord, i) => (
               <RecordCard
-                key={i}
-                record={filteredRecord}
-                {...this.props}
-                getData={this.getData}
+              getCompulsionAndPatientsRecordData={this.getCompulsionAndPatientsRecordData}
+              key={i}
+              record={filteredRecord}
+              {...this.props}
+              getData={this.getData}
               />
-            ))}
+              ))}
         </div>
       </div>
+              </div>
     );
   }
 }
