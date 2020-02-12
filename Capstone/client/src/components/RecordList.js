@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import RecordCard from "../components/RecordCard";
 import API from "../API/dataManager";
 import CompulsionCard from "../components/CompulsionCard";
-import './RecordList.css'
+import "./RecordList.css";
+import "./MaterialComponent/MaterialActionButtons"
+import {SubmitsFunction,ResistFunction,UndoFunction,DeleteCompulsion} from './MaterialComponent/MaterialActionButtons'
 
 class RecordList extends Component {
   state = {
@@ -28,70 +30,94 @@ class RecordList extends Component {
   componentDidMount() {
     this.getCompulsionAndPatientsRecordData();
   }
-  
+
   render() {
     return (
+      <>
       <div>
         <CompulsionCard
           props={this.props}
           compulsion={this.state.compulsion}
           {...this.props}
           getData={this.getData}
-        />
+        /> </div>
+      
 
         <div />
+<div className="container">
+        <div className="cardBackground">
           <div className="cardContainer">
-            
-        <div className="sectionHeader">
-          <h1>Patient Action Undo</h1>
-          {this.state.records
-            .filter(record => {
-              return record.patientActionId === 3;
-            })
-            .map((filteredRecord, i) => (
-              <RecordCard
-              getCompulsionAndPatientsRecordData={this.getCompulsionAndPatientsRecordData}
-                key={i}
-                record={filteredRecord}
-                {...this.props}
-                getData={this.getData}
-                />
-            ))}
+              <h2>Patient Undo</h2>
+            <div className="ActionCard-One">
+              {this.state.records
+                .filter(record => {
+                  return record.patientActionId === 3;
+                })
+                .map((filteredRecord, i) => (
+                  <RecordCard
+                    getCompulsionAndPatientsRecordData={
+                      this.getCompulsionAndPatientsRecordData
+                    }
+                    key={i}
+                    record={filteredRecord}
+                    {...this.props}
+                    getData={this.getData}
+                  />
+                ))}
+            </div>
+            <div className="cardButton"><UndoFunction/> </div>
+          </div>
         </div>
-        <div className="sectionHeader">
-          <h1>Patient Action Submits</h1>
-          {this.state.records
-            .filter(record => {
-              return record.patientActionId === 2;
-            })
-            .map((filteredRecord, i) => (
-              <RecordCard
-              getCompulsionAndPatientsRecordData={this.getCompulsionAndPatientsRecordData}
-              key={i}
-              record={filteredRecord}
-              {...this.props}
-              getData={this.getData}
-              />
-              ))}
+
+        <div className="cardBackground">
+          <div className="cardContainer">
+              <h2>Patient Submits</h2>
+            <div className="ActionCard-One">
+              {this.state.records
+                .filter(record => {
+                  return record.patientActionId === 2;
+                })
+                .map((filteredRecord, i) => (
+                  <RecordCard
+                    getCompulsionAndPatientsRecordData={
+                      this.getCompulsionAndPatientsRecordData
+                    }
+                    key={i}
+                    record={filteredRecord}
+                    {...this.props}
+                    getData={this.getData}
+                  />
+                  ))}
+            </div>
+                 <div className="cardButton"><SubmitsFunction/> </div>
+          </div>
         </div>
-        <div className="sectionHeader">
-          <h1>Patient Action Resists</h1>
-          {this.state.records
-            .filter(record => {
-              return record.patientActionId === 1;
-            })
-            .map((filteredRecord, i) => (
-              <RecordCard
-              getCompulsionAndPatientsRecordData={this.getCompulsionAndPatientsRecordData}
-              key={i}
-              record={filteredRecord}
-              {...this.props}
-              getData={this.getData}
-              />
-              ))}
+
+        <div className="cardBackground">
+          <div className="cardContainer">
+            <h2>Patient Resists</h2>
+            <div className="ActionCard-One">
+              {this.state.records
+                .filter(record => {
+                  return record.patientActionId === 1;
+                })
+                .map((filteredRecord, i) => (
+                  <RecordCard
+                    getCompulsionAndPatientsRecordData={
+                      this.getCompulsionAndPatientsRecordData
+                    }
+                    key={i}
+                    record={filteredRecord}
+                    {...this.props}
+                    getData={this.getData}
+                  />
+                ))}
+            </div>
+          <div className="cardButton"><ResistFunction/> </div>
+          </div>
         </div>
       </div>
-              </div>
+     </>
     );
   }
 }

@@ -96,10 +96,18 @@ namespace Capstone.Controllers
         [HttpPost(Api.Record.Post)]
         public async Task<ActionResult<Record>> PostRecord(Record record)
         {
-            var userId = HttpContext.GetUserId();
-            record.ApplicationUserId = userId;
-            _context.Record.Add(record);
-            await _context.SaveChangesAsync();
+            try
+            {
+
+                var userId = HttpContext.GetUserId();
+                record.ApplicationUserId = userId;
+                _context.Record.Add(record);
+                await _context.SaveChangesAsync();
+            }
+            catch(Exception ex)
+            {
+                //throw new EntryPointNotFoundException();
+            }
 
             return CreatedAtAction("GetRecord", new { id = record.RecordId }, record);
         }

@@ -1,6 +1,55 @@
-.cardContainer{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
+.container {
+    
+  display: flex;
+  flex-direction: row;
+  padding-left: 7em;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  color: black;
+  /* background-color: blue; */
+}
+
+.cardContainer {
+    letter-spacing: .2em;
+  display: flex;
+  flex-direction: column;
+  flex-direction: space-around;
+  padding-bottom: 1cm;
+  padding-left: 2em;
+  padding-right: 2em;
+  min-width: 15em;
+  align-items: center;
+
+  color: black;
+
+  background-color: #00b7be;
+}
+.ActionCard-One {
+    letter-spacing: .2em;
+  display: flex;
+  padding-bottom: 2cm;
+  background-color: #77ccd3;
+  font-size: 1em;
+  min-height: 20em;
+  min-width: 15em;
+}
+
+.cardButton {
+  margin-top: 3em;
+}
+.buttonFlex {
+  padding-right: 5.5em;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.mainCard {
+   font-family: 'Raleway', sans-serif;
+  font-size: 3em;
+  letter-spacing: .2em;
+  padding-top: -.5em;
+  padding-left: 13%;
+  min-width: 15em;
+  display: flex;
+  justify-content: flex-start;
+}
