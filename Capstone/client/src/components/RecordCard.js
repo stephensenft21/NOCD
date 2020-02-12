@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import API from '../API/dataManager'
 import Moment from 'moment';
+ import { DeleteRecord } from "./MaterialComponent/MaterialActionButtons";
 
 
 class RecordCard extends Component {
    
 
-    handleDelete = (id) => {
+    DeleteRecord = (id) => {
         API.deleteUserData("Records",id)
             .then(() => this.props.getCompulsionAndPatientsRecordData())
     }
@@ -18,12 +19,13 @@ class RecordCard extends Component {
         return (
             <div>
                 <div className="mainCard">
-                    <div>
+                    <div className="cardColumn">
                         <div>{this.props.record.id}</div>
-                        <div> {timeStamp}  </div >
+                        <div className="recordTimeStamp"> {timeStamp}  </div >
                         
-                        <div className="buttonFlex">
-                            <button className="button" type="button" onClick={() => this.handleDelete(this.props.record.recordId)}></button>
+                        <div className="recordCardButtonFlex">
+                        <DeleteRecord DeleteRecord ={() => this.DeleteRecord(this.props.record.recordId)}/>
+                            {/* <button className="button" type="button" onClick={() => this.DeleteRecord(this.props.record.recordId)}></button> */}
                         </div>
                     </div>
                 </div>

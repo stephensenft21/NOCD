@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import {withRouter} from 'react-router-dom'
+import { withRouter } from "react-router-dom";
 import moment from "moment";
-
 import API from "../API/dataManager";
-import {CircularIntegration} from "./MaterialComponent/MaterialSubmitButton";
-import {HomeSnackbar} from "./MaterialComponent/MaterialSnackBar";
-import SimpleSelect from "./MaterialComponent/MaterialDropDown";
-import ApplicationViews from '../components/ApplicationViews'
+import { CircularIntegration } from "./MaterialComponent/MaterialSubmitButton";
+import { HomeSnackbar } from "./MaterialComponent/MaterialSnackBar";
+import { SimpleSelect } from "./MaterialComponent/MaterialDropDown";
+import ApplicationViews from "../components/ApplicationViews";
 import {
   CompulsionsInStateInputField,
   NoCompulsionsInStateInputField
@@ -25,18 +24,18 @@ class Home extends Component {
   };
   toggle = () => this.setState({ collapse: !this.state.collapse });
 
-  handleNumberfieldChange = (evt) => {
+  handleNumberfieldChange = evt => {
     const stateToChange = {};
     stateToChange[evt.target.id] = +evt.target.value;
-    this.setState(stateToChange)
-    this.props.history.push(`/Compulsion/${evt.target.value}`)
+    this.setState(stateToChange);
+    this.props.history.push(`/Compulsion/${evt.target.value}`);
   };
 
   handleFieldChange = evt => {
     const stateToChange = {};
     stateToChange[evt.target.id] = evt.target.value;
     this.setState(stateToChange);
-    console.log(evt.target)
+    console.log(evt.target);
   };
 
   MakeANewCompulsion = evt => {
@@ -71,11 +70,7 @@ class Home extends Component {
   render() {
     return (
       <>
-        <img
-                            src={require("./IMG/logo.png")}
-                            className="logo"
-                            alt="NoCD"
-                        />
+        <img src={require("./IMG/logo.png")} className="logo" alt="NoCD" />
         <h1>How are you feeling today?</h1>
         <div>
           <form autoComplete="off">
@@ -89,18 +84,17 @@ class Home extends Component {
             {this.state.compulsions.length > 0 ? (
               <>
                 {" "}
+                <CompulsionsInStateInputField
+                  handleFieldChange={this.handleFieldChange}
+                />
                 <SimpleSelect
                   handleNumberfieldChange={this.handleNumberfieldChange}
                   compulsions={this.state.compulsions}
-                  description ={this.state.description}
+                  description={this.state.description}
                   compulsionId={this.state.compulsionId}
                   {...this.props}
                   key={this.compulsionId}
                 />
-                
-                <CompulsionsInStateInputField
-                  handleFieldChange={this.handleFieldChange}
-                /> 
                 {/* This Component below is the save button for the input field above */}
                 <CircularIntegration
                   MakeANewCompulsion={this.MakeANewCompulsion}
@@ -114,7 +108,6 @@ class Home extends Component {
                 <CircularIntegration
                   MakeANewCompulsion={this.MakeANewCompulsion}
                 />
-
               </>
             )}
           </form>
@@ -125,4 +118,4 @@ class Home extends Component {
   }
 }
 
-export default withRouter(Home)
+export default withRouter(Home);

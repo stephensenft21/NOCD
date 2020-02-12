@@ -68,6 +68,14 @@ let API = {
             },
             body: JSON.stringify(editedObject)
         }).then(data => data.json())
-    }
+    }, getWeekData(resource) {
+        const authHeader = createAuthHeaders()
+        return fetch(`${baseUrl}${resource}?week=true`,
+        {
+            method: "GET",
+            headers: authHeader
+        })
+            .then(response => response.json())
+    },
 }
 export default API

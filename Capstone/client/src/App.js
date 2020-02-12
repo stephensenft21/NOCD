@@ -40,7 +40,7 @@ class App extends Component {
               user={this.state.user}
               getCompulsionsData={this.getCompulsionsData} />
             ) : <Redirect to="/login" /> }} />
-            <Route exact path='/PatientData/(\d+)' render={(props) => {
+            <Route exact path='/PatientData/:compulsionId(\d+)' render={(props) => {
                     return < PatientData user={this.state.user} {...this.props} {...props} />
                     }} />
             <Route user={this.state.user} exact path='/Compulsion/:compulsionId(\d+)' render={(props) => {

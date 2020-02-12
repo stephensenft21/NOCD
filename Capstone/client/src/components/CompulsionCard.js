@@ -3,9 +3,6 @@ import API from "../API/dataManager";
 import { withRouter } from "react-router-dom";
 
 import { DeleteCompulsion } from "./MaterialComponent/MaterialActionButtons";
-// import { Card, Row, CardTitle,Button, CardBody } from "reactstrap";
-// import { FaRegTrashAlt } from "react-icons/fa";
-
 class CompulsionCard extends Component {
   handleDelete = id => {
     API.deleteUserData("Compulsions", id).then(() => API.getAll("Compulsions"));
@@ -14,14 +11,17 @@ class CompulsionCard extends Component {
   };
   // <FaRegTrashAlt />
 
-  render() {
+  render() 
+  {
+console.log(this.props)
     return (
       <div>
         <div>
           <h2 className="mainCard">{this.props.compulsion.description}</h2>
 
           <div className="buttonFlex">
-            <DeleteCompulsion />
+            <DeleteCompulsion
+           handleDelete={() => this.handleDelete(this.props.compulsion.compulsionId)} />
             {/* <button className="button" type="button" onClick={() => this.handleDelete(this.props.compulsion.compulsionId)}></button> */}
           </div>
         </div>

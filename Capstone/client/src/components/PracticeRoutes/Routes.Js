@@ -13,13 +13,13 @@ const Routes = [
     icon: AccessibilityRoundedIcon,
     component: Home
   },
-  {
-    path: '/Records/:compulsionId',
-    sidebarName: 'Records',
-    navbarName: 'Records',
-    icon: DescriptionRoundedIcon,
-    component: RecordList
-  },
+  // {
+  //   path: '/Compulsion/:compulsionId',
+  //   sidebarName: 'Records',
+  //   navbarName: 'Records',
+  //   icon: DescriptionRoundedIcon,
+  //   component: RecordList
+  // },
   {
     path: '/PatientData',
     sidebarName: 'PatientData',

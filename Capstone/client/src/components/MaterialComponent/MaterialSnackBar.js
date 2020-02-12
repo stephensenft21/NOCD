@@ -10,7 +10,7 @@ import CloseIcon from "@material-ui/icons/Close";
       <Snackbar
         anchorOrigin={{
           vertical: "bottom",
-          horizontal: "left"
+          horizontal: "right"
         }}
         open={props.open}
         autoHideDuration={6000}
@@ -38,7 +38,7 @@ import CloseIcon from "@material-ui/icons/Close";
       <Snackbar
         anchorOrigin={{
           vertical: "bottom",
-          horizontal: "left"
+          horizontal: "right"
         }}
         open={props.open}
         autoHideDuration={6000}

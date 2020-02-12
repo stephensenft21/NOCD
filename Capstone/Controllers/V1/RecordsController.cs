@@ -10,10 +10,11 @@ using Capstone.Models;
 using Microsoft.AspNetCore.Authorization;
 using Capstone.Routes.V1;
 using Capstone.Helpers;
+using Capstone.Models.ViewModels;
 
 namespace Capstone.Controllers
 {
-   // [AllowAnonymous]
+    // [AllowAnonymous]
 
     [Authorize]
 
@@ -94,17 +95,22 @@ namespace Capstone.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost(Api.Record.Post)]
-        public async Task<ActionResult<Record>> PostRecord(Record record)
+        public async Task<ActionResult<Record>> PostRecord(RecordViewModel recordViewModel)
         {
+            var record = new Record()
+            {
+                CompulsionId = recordViewModel.CompulsionId,
+                PatientActionId = recordViewModel.PatientActionId,
+                TimeStamp = DateTime.Now
+            };
             try
             {
-
                 var userId = HttpContext.GetUserId();
                 record.ApplicationUserId = userId;
                 _context.Record.Add(record);
                 await _context.SaveChangesAsync();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //throw new EntryPointNotFoundException();
             }
