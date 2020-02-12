@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { ListItemIcon, ListItemText, Divider, IconButton, MenuList, MenuItem, Drawer } from '@material-ui/core';
+import { ListItemIcon, ListItemText, Divider, IconButton, List, ListItem, Drawer } from '@material-ui/core';
 import { Link, withRouter } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import routes from '../PracticeRoutes/Routes.js';
 
-import routes from '../PracticeRoutes/Routes.Js';
-
-export class Sidebar extends Component {
+export class MaterialNavDrawer extends Component {
   constructor(props) {
     super(props);
 
@@ -24,24 +23,24 @@ export class Sidebar extends Component {
         <Drawer
           variant="permanent"
         >
-          <MenuList>
+          <List>    
             {routes.map((prop, key) => {
               return (
                 <Link to={prop.path} style={{ textDecoration: 'none' }} key={key}>
-                  <MenuItem selected={this.activeRoute(prop.path)}>
+                  <ListItem selected={this.activeRoute(prop.path)}>
                     <ListItemIcon>
                       <prop.icon />
                     </ListItemIcon>
                     <ListItemText primary={prop.sidebarName} />
-                  </MenuItem>
+                  </ListItem>
                 </Link>
               );
             })}
-          </MenuList>
+          </List>
         </Drawer>
       </div>
     );
   }
 }
 
-export default withRouter(Sidebar);
+export default withRouter(MaterialNavDrawer);

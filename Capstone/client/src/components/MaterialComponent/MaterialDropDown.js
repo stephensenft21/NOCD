@@ -20,22 +20,26 @@ export default function SimpleSelect(props) {
   const classes = useStyles();
    const [compulsionId, setCount] = React.useState("");
 
-   const handleChange = event => {
+   const handleChange = (event,name) => {
+
+     console.log(name)
      setCount(event.target.value);
-     console.log(event.target)
+
+     
    };
 
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-helper-label">Compulsion</InputLabel>
+        <InputLabel id="demo-simple-select-helper-label">Select</InputLabel>
         <Select
         name={props.compulsion}
+          
           labelId="compulsionId"
           id="compulsionId"
           value={compulsionId}
           onChange={(e) => {
-           handleChange(e)
+           handleChange(e,"compulsionId")
             props.handleNumberfieldChange(e);
           }}
         >
@@ -43,6 +47,7 @@ export default function SimpleSelect(props) {
             <MenuItem key={i} value={compulsion.compulsionId}>
               {compulsion.description}
             </MenuItem>
+            
           ))}
         </Select>
         <FormHelperText></FormHelperText>

@@ -23,6 +23,7 @@ let API = {
     },
     
     getOneResourceWithChild: (resource, id, secondResource) => {
+        
         const authHeader = createAuthHeaders()
         return fetch(`${baseUrl}/${resource}/${id}?includes=${secondResource}`, {
             method: "GET",

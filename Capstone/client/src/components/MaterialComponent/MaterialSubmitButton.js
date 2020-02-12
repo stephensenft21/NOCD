@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function CircularIntegration(props) {
+export  function CircularIntegration(props) {
   const classes = useStyles();
   const [loading, setLoading] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
@@ -89,3 +89,58 @@ export default function CircularIntegration(props) {
     </div>
   );
 }
+
+///////////////////Login Submit Button/////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+export function LoginSubmitButton(props) {
+  const classes = useStyles();
+  const [loading, setLoading] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
+  const timer = React.useRef();
+
+  const buttonClassname = clsx({
+    [classes.buttonSuccess]: success
+  });
+
+  React.useEffect(() => {
+    return () => {
+      clearTimeout(timer.current);
+    };
+  }, []);
+
+  const handleButtonClick = (props) => {
+    if (!loading) {
+      setSuccess(false);
+      setLoading(true);
+        setSuccess(true);
+      timer.current = setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    }
+  };
+
+  return (
+    <div className={classes.root}>
+      <div className={classes.wrapper}>
+        <Fab
+          type="submit"
+          aria-label="save"
+          color="primary"
+          className={buttonClassname}
+          onClick={() => {
+            handleButtonClick();
+          
+          }}
+        
+        >
+          {success ? <CheckIcon /> : <SaveIcon />}
+        </Fab>
+        {loading && (
+          <CircularProgress size={68} className={classes.fabProgress} />
+        )}
+      </div>
+    </div>
+  );
+}
+
+

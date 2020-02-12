@@ -1,61 +1,93 @@
-import React, { Component } from 'react';
-import RecordCard from '../components/RecordCard'
-import API from '../API/dataManager'
+import React, { Component } from "react";
+import RecordCard from "../components/RecordCard";
+import API from "../API/dataManager";
+import CompulsionCard from "../components/CompulsionCard";
+import theme from "../theme";
 
 class RecordList extends Component {
+  state = {
+    compulsion: [],
+    records: []
+  };
 
-    state = {
-        compulsion: [],
-        records: []
-    }
+  //(https://localhost:5001/api/v1/Compulsion/1?includes=ecords)
+  getCompulsionAndPatientsRecordData = () => {
+    API.getOneResourceWithChild(
+      "Compulsions",
+      this.props.match.params.compulsionId,
+      "Records"
+    ).then(data => {
+      console.log(data);
+      this.setState({
+        compulsion: data,
+        records: data.records
+      });
+    });
+  };
 
-    
-//(https://localhost:5001/api/v1/Compulsion/1?includes=ecords)
-getCompulsionAndPatientsRecordData = () => {
-        API.getOneResourceWithChild("Compulsion",this.props.match.params.CompulsionId,"Records").then((data) => {
-            console.log(data)
-			this.setState({
-                compulsion: data,
-                records: data
-			})
-		})
-	}
-	
-	componentDidMount() {
-		this.getCompulsionAndPatientsRecordData()
-	}
+  componentDidMount() {
+    this.getCompulsionAndPatientsRecordData();
+  }
 
+  render() {
+    return (
+      <div>
+        <CompulsionCard
+          props={this.props}
+          compulsion={this.state.compulsion}
+          {...this.props}
+          getData={this.getData}
+        />
 
-    render() {
-	
-		return (     
-					<div  className='mainContainer'>
-                        	{this.state.compulsion.map(compulsion => (
-                    <compulsionCard
-					key={compulsion.id}
-					compulsion={compulsion}
-					{...this.props}
-					getData={this.getData}
-					/>
-					))}
-			<div className='sectionHeader'>
-					<h1>Patient Records</h1>
-				{this.state.comments.map(record => (
-                    <RecordCard
-					key={record.id}
-					record={record}
-					{...this.props}
-					getData={this.getData}
-					/>
-					))}
-                    </div>
-					</div>
-				
-		);
-	
-
-                }
-
-
-
-} export default RecordList 
+        <div />
+        <div className="sectionHeader">
+          <h1>Patient Action Undo</h1>
+          {this.state.records
+            .filter(record => {
+              return record.patientActionId === 3;
+            })
+            .map((filteredRecord, i) => (
+              <RecordCard
+                key={i}
+                record={filteredRecord}
+                {...this.props}
+                getData={this.getData}
+              />
+            ))}
+        </div>
+        <div className="sectionHeader">
+          <h1>Patient Action Submits</h1>
+          {this.state.records
+            .filter(record => {
+              return record.patientActionId === 2;
+            })
+            .map((filteredRecord, i) => (
+              <RecordCard
+                
+                key={i}
+                record={filteredRecord}
+                {...this.props}
+                getData={this.getData}
+              />
+            ))}
+        </div>
+        <div className="sectionHeader">
+          <h1>Patient Action Resists</h1>
+          {this.state.records
+            .filter(record => {
+              return record.patientActionId === 1;
+            })
+            .map((filteredRecord, i) => (
+              <RecordCard
+                key={i}
+                record={filteredRecord}
+                {...this.props}
+                getData={this.getData}
+              />
+            ))}
+        </div>
+      </div>
+    );
+  }
+}
+export default RecordList;

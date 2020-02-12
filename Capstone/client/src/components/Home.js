@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import {withRouter} from 'react-router-dom'
 import moment from "moment";
 import API from "../API/dataManager";
-import CircularIntegration from "./MaterialComponent/MaterialSubmitButton";
-import SimpleSnackbar from "./MaterialComponent/MaterialSnackBar";
+import {CircularIntegration} from "./MaterialComponent/MaterialSubmitButton";
+import {HomeSnackbar} from "./MaterialComponent/MaterialSnackBar";
 import SimpleSelect from "./MaterialComponent/MaterialDropDown";
+import ApplicationViews from '../components/ApplicationViews'
 import {
   CompulsionsInStateInputField,
   NoCompulsionsInStateInputField
@@ -25,7 +27,8 @@ class Home extends Component {
   handleNumberfieldChange = (evt) => {
     const stateToChange = {};
     stateToChange[evt.target.id] = +evt.target.value;
-    this.setState(stateToChange);
+    this.setState(stateToChange)
+    this.props.history.push(`/Compulsion/${evt.target.value}`)
   };
 
   handleFieldChange = evt => {
@@ -67,10 +70,12 @@ class Home extends Component {
   render() {
     return (
       <>
+ 
         <h1>How are you feeling today?</h1>
         <div>
-          <form>
-            <SimpleSnackbar
+          <form autoComplete="off">
+            {/* Message = "Great job! You added a new compulsion!" */}
+            <HomeSnackbar
               open={this.state.open}
               onClick={this.MakeANewCompulsion}
               handleClose={this.handleClose}
@@ -104,15 +109,6 @@ class Home extends Component {
                   MakeANewCompulsion={this.MakeANewCompulsion}
                 />
 
-                {/* <button
-                  variant="contained"
-                  color="primary"
-                  type="button"
-                  onClick={this.MakeANewCompulsion}
-                >
-  
-                  Submit
-                </button> */}
               </>
             )}
           </form>
@@ -123,4 +119,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default withRouter(Home)

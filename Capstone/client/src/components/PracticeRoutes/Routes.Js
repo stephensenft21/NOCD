@@ -3,21 +3,18 @@ import RecordList from '../RecordList'
 import DonutLargeRoundedIcon from '@material-ui/icons/DonutLargeRounded';
 import AccessibilityRoundedIcon from '@material-ui/icons/AccessibilityRounded';
 import DescriptionRoundedIcon from '@material-ui/icons/DescriptionRounded';
-import VpnKeyRoundedIcon from '@material-ui/icons/VpnKeyRounded';
-import PersonAddRoundedIcon from '@material-ui/icons/PersonAddRounded';
 import PatientData from '../PatientData'
-import Login from '../Login';
-import Register from '../Register'
+
 const Routes = [
   {
-    path: '/Compulsions',
+    path: '/Compulsions/New',
     sidebarName: 'Compulsions',
     navbarName: 'Compulsions',
     icon: AccessibilityRoundedIcon,
     component: Home
   },
   {
-    path: '/RecordList',
+    path: '/Records/:compulsionId',
     sidebarName: 'Records',
     navbarName: 'Records',
     icon: DescriptionRoundedIcon,
@@ -25,25 +22,26 @@ const Routes = [
   },
   {
     path: '/PatientData',
-    sidebarName: 'Records',
-    navbarName: 'Records',
+    sidebarName: 'PatientData',
+    navbarName: 'PatientData',
     icon: DonutLargeRoundedIcon,
     component: PatientData
   },
-  {
-    path: '/login',
-    sidebarName: 'Login',
-    navbarName: 'Login',
-    icon: VpnKeyRoundedIcon,
-    component: Login
-  },
-  {
-    path: '/register',
-    sidebarName: 'Register',
-    navbarName: 'Register',
-    icon: PersonAddRoundedIcon,
-    component: Register
-  }
+  
+  // {
+  //   path: '/register',
+  //   sidebarName: 'Register',
+  //   navbarName: 'Register',
+  //   icon: PersonAddRoundedIcon,
+  //   component: Register
+  // },
+  // {
+  //   path: '/login',
+  //   sidebarName: 'Logout',
+  //   navbarName: 'Login',
+  //   icon: PersonAddRoundedIcon,
+  //   component: Login
+  // }
 ];
 
 export default Routes;

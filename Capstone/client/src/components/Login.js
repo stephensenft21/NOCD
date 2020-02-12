@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import { login } from '../API/userManager';
-
+import {LoginSubmitButton} from './MaterialComponent/MaterialSubmitButton'
+import {LoginPasswordInput,LoginEmailInput} from './MaterialComponent/MaterialInputs'
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
+import {LoginSnackbar} from './MaterialComponent/MaterialSnackBar'
 class Login extends Component {
   state = {
     email: '',
     password: '',
     errors: [],
+    open: false
   }
 
   submit = (event) => {
-    event.preventDefault();
+     event.preventDefault();
+
     login({
       email: this.state.email,
       password: this.state.password,
     })
       .then((user) => {
         this.props.onLogin(user);
-        this.props.history.push('/');
+        this.props.history.push('/Compulsions/New');
       })
       .catch(err => {
         this.setState({ errors: err.messages });
@@ -25,16 +30,36 @@ class Login extends Component {
   }
 
   handleInputChange = (event) => {
+    console.log(event)
     const { name, value } = event.target;
     this.setState({
       [name]: value,
     });
   }
+  handleClose = event => {
+   
+      this.setState({ open: false })
+    
+  };
+
 
   render() {
     return (
-      <form onSubmit={this.submit}>
+      <form   onSubmit={this.submit}>
         <h1>Login</h1>
+        {/* <LoginSnackbar
+              open={this.state.open}
+              handleClose={this.handleClose}
+            /> */}
+        <LoginEmailInput
+        handleInputChange={this.handleInputChange}/>
+        <LoginPasswordInput
+        handleInputChange={this.handleInputChange}/>
+        <LoginSubmitButton />
+        {/* <button type="submit">Log in</button> */}
+        <p>
+          Not yet a user? <Link to="/register"> {""}<PersonAddIcon/></Link>
+        </p>
         <ul>
           {
             this.state.errors ? this.state.errors.map((message, i) => (
@@ -42,31 +67,6 @@ class Login extends Component {
             )) : null
           }
         </ul>
-        <div>
-          <label htmlFor="email">
-            Email
-        </label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="example@email.com"
-            onChange={this.handleInputChange} />
-        </div>
-        <div>
-          <label htmlFor="password">
-            Password
-        </label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            onChange={this.handleInputChange} />
-        </div>
-        <button type="submit">Log in</button>
-        <p>
-          Not yet a user? <Link to="/register">Sign up</Link>
-        </p>
       </form>
     );
   }
