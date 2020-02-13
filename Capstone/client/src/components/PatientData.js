@@ -80,4 +80,4 @@ class PatientAction extends Component {
       </>
     );
   }
-} export default withRouter(PatientAction);
+} export default PatientAction;
