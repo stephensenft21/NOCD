@@ -1,37 +1,37 @@
 import React, { Component } from 'react';
-import API from '../../modules/APIManager'
-import { Card, Row, CardTitle, CardText, Button, CardBody } from "reactstrap";
-import { FaRegTrashAlt } from "react-icons/fa";
+import API from '../API/dataManager'
 import Moment from 'moment';
-import "./CommentCard.css"
+ import { DeleteRecord } from "./MaterialComponent/MaterialActionButtons";
 
-class CommentCard extends Component {
+
+class RecordCard extends Component {
    
 
-    handleDelete = (id) => {
-        API.delete(id, "records")
-            .then(() => this.props.getCompulsionAndPatientsRecordData());
+    DeleteRecord = (id) => {
+        API.deleteUserData("Records",id)
+            .then(() => this.props.getCompulsionAndPatientsRecordData())
     }
 
 
     //renders
     render() {
-        let timeStamp = Moment(this.prop.record.date).fromNow();
+        let timeStamp = Moment(this.props.record.timeStamp).fromNow();
         return (
             <div>
-                <Card className="mainCard">
-                    <CardBody>
-                        <CardTitle>{this.props.record.id}</CardTitle>
-                        <CardText> {timeStamp}  </CardText >
+                <div className="mainCard">
+                    <div className="cardColumn">
+                        <div>{this.props.record.id}</div>
+                        <div className="recordTimeStamp"> {timeStamp}  </div >
                         
-                        <Row className="buttonFlex">
-                            <Button className="button" type="button" onClick={() => this.handleDelete(this.props.record.id)}><FaRegTrashAlt /></Button>
-                        </Row>
-                    </CardBody>
-                </Card>
+                        <div className="recordCardButtonFlex">
+                        <DeleteRecord DeleteRecord ={() => this.DeleteRecord(this.props.record.recordId)}/>
+                            {/* <button className="button" type="button" onClick={() => this.DeleteRecord(this.props.record.recordId)}></button> */}
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }
 }
 
-export default CommentCard;
+export default RecordCard;

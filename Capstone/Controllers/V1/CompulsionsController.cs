@@ -174,7 +174,7 @@ namespace Capstone.Controllers.V1
             var userId = HttpContext.GetUserId();
             var newView = await _context.Compulsion
                 .Include(r => r.Records)
-                .Where(u => u.ApplicationUserId == userId)
+                .Where(c => c.ApplicationUserId == userId && c.CompulsionId == id)
                 .Select(c => new OneCompulsionWithRecordsViewModel
                 {
                     CompulsionId = c.CompulsionId,

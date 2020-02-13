@@ -1,38 +1,32 @@
-import React, { Component } from 'react';
-import API from '../../modules/APIManager'
-import { Card, Row, CardTitle,Button, CardBody } from "reactstrap";
-import { FaRegTrashAlt } from "react-icons/fa";
+import React, { Component } from "react";
+import API from "../API/dataManager";
+import { withRouter } from "react-router-dom";
 
-import "./CommentCard.css"
-
+import { DeleteCompulsion } from "./MaterialComponent/MaterialActionButtons";
 class CompulsionCard extends Component {
-   
+  handleDelete = id => {
+    API.deleteUserData("Compulsions", id).then(() => API.getAll("Compulsions"));
+    this.props.history.push("/Compulsions/New");
+    //this method needs to change to push back to the welcome view after deletion or chart view havent decided yet
+  };
+  // <FaRegTrashAlt />
 
-    handleDelete = (id) => {
-        API.delete(id, "compulsion")
-            .then(() => this.props.getCompulsionAndPatientsRecordData());
-            //this method needs to change to push back to the welcome view after deletion or chart view havent decided yet
-    }
+  render() {
+    console.log(this.props)
+    return (
+      <div>
+        <div>
+          <h2 className="mainCard">{this.props.compulsion.description}</h2>
 
-
-    //renders
-    render() {
-  
-        return (
-            <div>
-                <Card className="mainCard">
-                    <CardBody>
-                        <CardTitle>{this.props.comment.text}</CardTitle>
-                    
-                        
-                        <Row className="buttonFlex">
-                            <Button className="button" type="button" onClick={() => this.handleDelete(this.props.compulsion.id)}><FaRegTrashAlt /></Button>
-                        </Row>
-                    </CardBody>
-                </Card>
-            </div>
-        );
-    }
+          <div className="buttonFlex">
+            <DeleteCompulsion
+              handleDelete={() => this.handleDelete(this.props.compulsion.compulsionId)} />
+            {/* <button className="button" type="button" onClick={() => this.handleDelete(this.props.compulsion.compulsionId)}></button> */}
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default CompulsionCard;
+export default withRouter(CompulsionCard);

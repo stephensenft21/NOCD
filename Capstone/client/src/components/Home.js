@@ -1,12 +1,14 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import moment from "moment";
 import API from "../API/dataManager";
-import Snackbar from "@material-ui/core/Snackbar";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import InputLabel from "@material-ui/core/InputLabel";
-import SimpleSelect from "../components/AlertComponent/MaterialDropDown";
+import { CircularIntegration } from "./MaterialComponent/MaterialSubmitButton";
+import { HomeSnackbar } from "./MaterialComponent/MaterialSnackBar";
+import { SimpleSelect } from "./MaterialComponent/MaterialDropDown";
+import {
+  CompulsionsInStateInputField,
+  NoCompulsionsInStateInputField
+} from "./MaterialComponent/MaterialInputs";
 class Home extends Component {
   moment = moment().format("MMMM Do YYYY, h:mm:ss a");
   state = {
@@ -25,85 +27,89 @@ class Home extends Component {
     const stateToChange = {};
     stateToChange[evt.target.id] = +evt.target.value;
     this.setState(stateToChange);
+    this.props.history.push(`/Compulsion/${evt.target.value}`);
   };
 
   handleFieldChange = evt => {
     const stateToChange = {};
     stateToChange[evt.target.id] = evt.target.value;
     this.setState(stateToChange);
+    console.log(evt.target);
   };
 
   MakeANewCompulsion = evt => {
-    evt.preventDefault();
-
     if (this.state.description === "") {
-      window.alert("Please fill out all form fields");
+      window.alert("Please fill out empty form fields");
     } else {
       const newCompulsion = {
         userId: this.props.userId,
         description: this.state.description
       };
-
       API.PostData("Compulsions", newCompulsion).then(() =>
         API.getAll("Compulsions").then(data =>
           this.setState({ compulsions: data, open: true })
         )
-      );
+      )
+    
+      // .then(this.props.history.push(`/Compulsions/${this.state.compulsionId}`))
+      //Im trying to grab the selected compulsionId and push to that view. Having issues
     }
   };
 
   componentDidMount() {
     let compulsions = [];
-    console.log("this is compulsionarray", compulsions);
-
     API.getAll("Compulsions").then(compulsion => {
       compulsions = compulsion;
       this.setState({ compulsions: compulsions });
-      console.log("this is new state", compulsions);
     });
   }
+  handleClose = event => {
+    API.getAll("Compulsions").then(data =>
+      this.setState({ compulsions: data, open: false })
+    );
+  };
 
   render() {
     return (
       <>
+        <img src={require("./IMG/logo.png")} className="logo" alt="NoCD" />
         <h1>How are you feeling today?</h1>
         <div>
-          <form>
-            <Snackbar
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left"
-              }}
+          <form autoComplete="off">
+            {/* Message = "Great job! You added a new compulsion!" */}
+            <HomeSnackbar
               open={this.state.open}
-              autoHideDuration={6000}
-              message="Great job! You added a new compulsion!"
+              onClick={this.MakeANewCompulsion}
+              handleClose={this.handleClose}
             />
+
             {this.state.compulsions.length > 0 ? (
               <>
                 {" "}
+                <CompulsionsInStateInputField
+                  handleFieldChange={this.handleFieldChange}
+                />
                 <SimpleSelect
-                  onChange={this.handleNumberfieldChange}
+                  handleNumberfieldChange={this.handleNumberfieldChange}
                   compulsions={this.state.compulsions}
+                  description={this.state.description}
                   compulsionId={this.state.compulsionId}
                   {...this.props}
+                  key={this.compulsionId}
+                />
+                {/* This Component below is the save button for the input field above */}
+                <CircularIntegration
+                  MakeANewCompulsion={this.MakeANewCompulsion}
                 />
               </>
             ) : (
               <>
-                <input
-                  id="description"
-                  onChange={this.handleFieldChange}
-                ></input>
-
-                <button
-                  variant="contained"
-                  color="primary"
-                  type="button"
-                  onClick={this.MakeANewCompulsion}
-                >
-  
-                  Submit
-                </button>
+                <NoCompulsionsInStateInputField
+                  handleFieldChange={this.handleFieldChange}
+                />
+                <CircularIntegration
+                  MakeANewCompulsion={this.MakeANewCompulsion}
+                />
               </>
             )}
           </form>
@@ -114,4 +120,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default withRouter(Home);

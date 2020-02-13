@@ -23,6 +23,7 @@ let API = {
     },
     
     getOneResourceWithChild: (resource, id, secondResource) => {
+        
         const authHeader = createAuthHeaders()
         return fetch(`${baseUrl}/${resource}/${id}?includes=${secondResource}`, {
             method: "GET",
@@ -48,8 +49,11 @@ let API = {
     },
 
     deleteUserData(resource, Id) {
-        return fetch(`/api/${resource}/${Id}`, {
-            method: "DELETE"
+        const authHeader = createAuthHeaders()
+        return fetch(`${baseUrl}/${resource}/${Id}`, {
+            
+            method: "DELETE",
+            headers: authHeader
         }).then(response => response.json())
 
     },
@@ -64,6 +68,14 @@ let API = {
             },
             body: JSON.stringify(editedObject)
         }).then(data => data.json())
-    }
+    }, getWeekData(resource) {
+        const authHeader = createAuthHeaders()
+        return fetch(`${baseUrl}${resource}?week=true`,
+        {
+            method: "GET",
+            headers: authHeader
+        })
+            .then(response => response.json())
+    },
 }
 export default API
