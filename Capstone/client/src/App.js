@@ -10,7 +10,7 @@ import "./App.css";
 import PatientData from "./components/PatientData";
 import RecordList from "./components/RecordList";
 import Dashboard from "./components/Dashboard"
-import {withRouter} from 'react-router-dom'
+
 class App extends Component {
   state = {
     user: getUser()
