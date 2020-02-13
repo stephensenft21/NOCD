@@ -1,31 +1,29 @@
 import React, { Component } from "react";
 import API from "../API/dataManager";
-import ActionPieChart from "./Charts/ActionPieChart";
-import ActionBarChart from "./Charts/ActionBarChart";
-import ActionLineChart from "./Charts/ActionLineChart";
 import {CompulsionSelect} from "./MaterialComponent/MaterialDropDown";
 import {withRouter} from 'react-router-dom'
-// import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
+
 
 class PatientAction extends Component {
   state = {
     compulsions:[],
     compulsionId: 0
   ,description: "",
+  records:[],
+  compulsion: {},
   };
 
   handleNumberfieldChange = evt => {
     const stateToChange = {};
     stateToChange[evt.target.id] = +evt.target.value;
     this.setState(stateToChange);
-    this.props.history.push(`/Record/${evt.target.value}`);
+    this.props.history.push(`/PatientData/${evt.target.value}`)
   };
   componentDidMount() {
     let compulsions = [];
     API.getAll("Compulsions").then(compulsion => {
       compulsions = compulsion;
-      this.setState({ compulsions: compulsions }).then(API.getOneResourceWithChild()
+      this.setState({ compulsions: compulsions })
     });
  
   

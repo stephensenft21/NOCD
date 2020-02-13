@@ -11,9 +11,8 @@ class CompulsionCard extends Component {
   };
   // <FaRegTrashAlt />
 
-  render() 
-  {
-console.log(this.props)
+  render() {
+    console.log(this.props)
     return (
       <div>
         <div>
@@ -21,7 +20,7 @@ console.log(this.props)
 
           <div className="buttonFlex">
             <DeleteCompulsion
-           handleDelete={() => this.handleDelete(this.props.compulsion.compulsionId)} />
+              handleDelete={() => this.handleDelete(this.props.compulsion.compulsionId)} />
             {/* <button className="button" type="button" onClick={() => this.handleDelete(this.props.compulsion.compulsionId)}></button> */}
           </div>
         </div>

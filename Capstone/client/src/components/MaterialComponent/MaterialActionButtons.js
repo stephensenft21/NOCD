@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { orange, green } from "@material-ui/core/colors";
+import { orange, green, pink } from "@material-ui/core/colors";
 import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
@@ -20,13 +20,13 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: orange[300]
     }
   },
-  //   fabProgress: {
-  //     color: "#FC766AFF"[500],
-  //     position: 'absolute',
-  //     top: -6,
-  //     left: -6,
-  //     zIndex: 1,
-  //   },
+    fabProgress: {
+      color: pink[500],
+      position: 'absolute',
+      top: -6,
+      left: -6,
+      zIndex: 1,
+    },
   buttonProgress: {
     color: orange[500],
     position: "absolute",

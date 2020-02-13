@@ -50,6 +50,12 @@
   height: 11em;
   width: auto;
 }
+.Dashboard-View{
+
+  display: flex;
+  justify-content: center;
+
+}
 
 
 

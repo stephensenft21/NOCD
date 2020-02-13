@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect, BrowserRouter as Router, Route } from "react-router-dom";
+import { Redirect, BrowserRouter as Router, Route, } from "react-router-dom";
 import Header from "./components/Header";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -9,7 +9,8 @@ import MaterialNavDrawer from "./components/MaterialComponent/MaterialNavDrawer"
 import "./App.css";
 import PatientData from "./components/PatientData";
 import RecordList from "./components/RecordList";
-
+import Dashboard from "./components/Dashboard"
+import {withRouter} from 'react-router-dom'
 class App extends Component {
   state = {
     user: getUser()
@@ -17,7 +18,8 @@ class App extends Component {
 
   logout = () => {
     this.setState({ user: null });
-    removeUser();
+    removeUser()
+    
   };
 
   render() {
@@ -60,6 +62,19 @@ class App extends Component {
                 <PatientData
                   user={this.state.user}
                   {...this.props}
+                  {...props}
+                />
+              );
+            }}
+          />
+          <Route
+            exact
+            path="/PatientData/:compulsionId(\d+)"
+            render={props => {
+              return (
+                <Dashboard className="Dashboard-View"
+                  user={this.state.user}
+                  // {...this.props}
                   {...props}
                 />
               );

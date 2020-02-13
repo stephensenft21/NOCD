@@ -5,7 +5,6 @@ import API from "../API/dataManager";
 import { CircularIntegration } from "./MaterialComponent/MaterialSubmitButton";
 import { HomeSnackbar } from "./MaterialComponent/MaterialSnackBar";
 import { SimpleSelect } from "./MaterialComponent/MaterialDropDown";
-import ApplicationViews from "../components/ApplicationViews";
 import {
   CompulsionsInStateInputField,
   NoCompulsionsInStateInputField
@@ -50,7 +49,10 @@ class Home extends Component {
         API.getAll("Compulsions").then(data =>
           this.setState({ compulsions: data, open: true })
         )
-      );
+      )
+    
+      // .then(this.props.history.push(`/Compulsions/${this.state.compulsionId}`))
+      //Im trying to grab the selected compulsionId and push to that view. Having issues
     }
   };
 

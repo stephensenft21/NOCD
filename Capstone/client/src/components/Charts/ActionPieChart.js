@@ -3,11 +3,11 @@ import { Doughnut } from 'react-chartjs-2';
 
 
 
-export default class ActionChart extends Component {
+export default class ActionPieChart extends Component {
     render() {
-        const Submitted =  this.props.record.filter(r => r.PatientActionId === 2).length
-        const Resisted =  this.props.record.filter(r => r.PatientActionId === 1).length
-        const Undo =  this.props.record.filter(r => r.PatientActionId === 3).length
+        const Submitted =  this.props.records.filter(r => r.patientActionId === 2).length
+        const Resisted =  this.props.records.filter(r => r.patientActionId === 1).length
+        const Undo =  this.props.records.filter(r => r.patientActionId === 3).length
                                                       //using a filter and .length
         const data = {
             labels: ["Submitted", "Resisted", "Undo",],
