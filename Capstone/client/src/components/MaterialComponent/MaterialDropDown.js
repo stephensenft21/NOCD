@@ -31,7 +31,7 @@ export  function SimpleSelect(props) {
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-helper-label">Select</InputLabel>
+        <InputLabel id="demo-simple-select-helper-label">Compulsion</InputLabel>
         <Select
         name={props.compulsion}
           
@@ -50,7 +50,7 @@ export  function SimpleSelect(props) {
             
           ))}
         </Select>
-        <FormHelperText></FormHelperText>
+        <FormHelperText>Select One</FormHelperText>
       </FormControl>
     </div>
   );

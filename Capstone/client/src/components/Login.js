@@ -5,6 +5,7 @@ import {LoginSubmitButton} from './MaterialComponent/MaterialSubmitButton'
 import {LoginPasswordInput,LoginEmailInput} from './MaterialComponent/MaterialInputs'
 import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import {LoginSnackbar} from './MaterialComponent/MaterialSnackBar'
+
 class Login extends Component {
   state = {
     email: '',
@@ -46,6 +47,7 @@ class Login extends Component {
   render() {
     return (
       <form   onSubmit={this.submit}>
+          <img src={require("./IMG/logo.png")} className="logo loginLogo" alt="NoCD" />
         <h1>Login</h1>
         {/* <LoginSnackbar
               open={this.state.open}

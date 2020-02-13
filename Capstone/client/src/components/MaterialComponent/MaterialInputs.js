@@ -19,7 +19,7 @@ export function CompulsionsInStateInputField(props) {
       <TextField
         onChange={props.handleFieldChange}
         id="description"
-        label="Add another Compulsion"
+        label="Whats Your Compulsion?"
         autoFocus
       />
     </div>
@@ -33,7 +33,7 @@ export function NoCompulsionsInStateInputField(props) {
       <TextField
         onChange={props.handleFieldChange}
         id="description"
-        label=" Click to add compulsion"
+        label="Log new compulsion"
         autoFocus
       />
     </div>

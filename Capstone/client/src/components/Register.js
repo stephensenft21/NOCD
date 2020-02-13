@@ -22,7 +22,7 @@ class Register extends Component {
     })
       .then((user) => {
         this.props.onLogin(user);
-        this.props.history.push('/');
+        this.props.history.push('/Compulsions/New');
       })
       .catch(err => {
         this.setState({ errors: err.messages });
@@ -39,6 +39,7 @@ class Register extends Component {
   render() {
     return (
       <form onSubmit={this.submit}>
+                <img src={require("./IMG/logo.png")} className="logo loginLogo" alt="NoCD" />
         <h1>Register</h1>
         <ul>
           {
