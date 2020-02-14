@@ -17,6 +17,7 @@
   padding-left: 2em;
   padding-right: 2em;
   min-width: 15em;
+  max-height: 405px;
   align-items: center;
 
   color: black;
@@ -31,13 +32,14 @@
   padding-bottom: 2cm;
   background-color: #77ccd3;
   font-size: 0.5em;
-  min-height: 20em;
-  min-width: 15em;
+  min-height: 10em;
+  /* min-width: 15em; */
+  max-width: 30em;
   
 }
 .recordTimeStamp {
   font-family: "Raleway", sans-serif;
-  font-size: 1em;
+  font-size: .5em;
   min-width: 10em;
 }
 

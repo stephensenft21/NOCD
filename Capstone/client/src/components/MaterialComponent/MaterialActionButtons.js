@@ -60,7 +60,7 @@ export function SubmitsFunction(props) {
       timer.current = setTimeout(() => {
         setSuccess(true);
         setLoading(false);
-      }, 2000);
+      }, 1000);
     }
   };
 
@@ -109,7 +109,7 @@ export function ResistFunction(props) {
       timer.current = setTimeout(() => {
         setSuccess(true);
         setLoading(false);
-      }, 2000);
+      }, 1000);
     }
   };
 
@@ -158,7 +158,7 @@ export function UndoFunction(props) {
       timer.current = setTimeout(() => {
         setSuccess(true);
         setLoading(false);
-      }, 2000);
+      }, 1000);
     }
   };
 
@@ -207,7 +207,7 @@ export function DeleteCompulsion(props) {
       timer.current = setTimeout(() => {
         setSuccess(true);
         setLoading(false);
-      }, 2000);
+      }, 1000);
     }
   };
 

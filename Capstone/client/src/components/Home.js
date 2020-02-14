@@ -11,6 +11,7 @@ import {
 } from "./MaterialComponent/MaterialInputs";
 class Home extends Component {
   moment = moment().format("MMMM Do YYYY, h:mm:ss a");
+
   state = {
     userId: this.props.userId,
     values: [],
@@ -21,6 +22,9 @@ class Home extends Component {
     loadingStatus: false,
     open: false
   };
+
+
+  
   toggle = () => this.setState({ collapse: !this.state.collapse });
 
   handleNumberfieldChange = evt => {
@@ -49,8 +53,8 @@ class Home extends Component {
         API.getAll("Compulsions").then(data =>
           this.setState({ compulsions: data, open: true })
         )
-      )
-    
+      );
+
       // .then(this.props.history.push(`/Compulsions/${this.state.compulsionId}`))
       //Im trying to grab the selected compulsionId and push to that view. Having issues
     }
