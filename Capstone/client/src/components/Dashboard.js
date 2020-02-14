@@ -7,6 +7,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { withRouter } from "react-router-dom";
 import { FormControl } from "@material-ui/core";
+import "./DashBoard.css"
 class Dashboard extends Component {
   state = {
     compulsion: {},
@@ -32,32 +33,48 @@ class Dashboard extends Component {
     this.getCompulsionAndPatientsRecordData();
   }
 
-
   render() {
-    console.log("This is from Dashboard", this.props)
+    console.log("This is from Dashboard", this.props);
     return (
       <>
-    
-       
-        
-        <Grid direction={"column"} justify="flex-start" container alignItems={"stretch"}>
-           <Grid item xs={7}>
+        <h1>Compulsion({this.state.compulsion.description})</h1>
+        <Grid
+          direction={"column"}
+          justify="flex-start"
+          container
+          alignItems={"center"}
+        >
+          <Grid item xs={7}>
             <ActionPieChart records={this.state.records} />
+          </Grid>
+{/* <hr className="DashBoard-Divider-Yellow"></hr>
+<hr className="DashBoard-Divider-Red"></hr> */}
+<hr className="DashBoard-Divider-Blue"></hr>
+          <Grid
+            direction={"column"}
+            justify="flex-start"
+            container
+            alignItems={"center"}
+          >
+            <Grid item xs={4}>
+              <ActionBarChart records={this.state.records} />
             </Grid>
-          
-        
-           {/* <Grid item xs={4}>
-            <ActionLineChart records={this.state.records} />
+          </Grid>
+
+          {""}
+          <hr className="DashBoard-Divider-Blue"></hr>
+          {""}
+
+          <Grid
+            direction={"column"}
+            justify="flex-start"
+            container
+            alignItems={"center"}
+          >
+            <Grid item xs={4}>
+              <ActionLineChart records={this.state.records} />
             </Grid>
-          
-        
-           <Grid item xs={4}>
-            <ActionBarChart records={this.state.records} />
-            </Grid>
-           */}
-        
-    
-     
+          </Grid>
         </Grid>
       </>
     );

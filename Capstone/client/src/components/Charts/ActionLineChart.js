@@ -11,10 +11,10 @@ export default class ActionLineChart extends Component {
         
         const data = {
             
-            labels: ["Motivated", "UnMotivated", "Productive", "UnProductive"],
+            labels: ["Submitted", "Resisted", "Undo",],
             datasets: [
                 {
-                    label: "Motivation",
+                    label: "Actions",
                     data: [Submitted, Resisted, Undo],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -29,8 +29,8 @@ export default class ActionLineChart extends Component {
             <div>
                 <Line
                     data={data}
-                    width={150}
-                    height={150}
+                    width={500}
+                    height={400}
                 //options={{ maintainAspectRatio: false }}
                 />
             </div>

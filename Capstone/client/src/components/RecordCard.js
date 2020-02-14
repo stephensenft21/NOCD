@@ -18,7 +18,7 @@ class RecordCard extends Component {
         let timeStamp = Moment(this.props.record.timeStamp).fromNow();
         return (
             <div>
-                <div className="mainCard">
+                <div className="mainCard RecordCard">
                     <div className="cardColumn">
                         <div>{this.props.record.id}</div>
                         <div className="recordTimeStamp"> {timeStamp}  </div >

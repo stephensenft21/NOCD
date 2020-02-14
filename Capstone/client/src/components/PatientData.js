@@ -47,7 +47,7 @@ class PatientAction extends Component {
   render() {
     return (
       <>
-       <h1>How are you feeling today?</h1>
+       <h1>Select Compulsion to view Action History</h1>
         
           <form autoComplete="off">
             {/* Message = "Great job! You added a new compulsion!" */}

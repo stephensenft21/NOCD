@@ -77,9 +77,11 @@ class Home extends Component {
     return (
       <>
         <img src={require("./IMG/logo.png")} className="logo" alt="NoCD" />
-        <h1>How are you feeling today?</h1>
+       
         <div>
+    
           <form autoComplete="off">
+        
             {/* Message = "Great job! You added a new compulsion!" */}
             <HomeSnackbar
               open={this.state.open}
@@ -89,6 +91,8 @@ class Home extends Component {
 
             {this.state.compulsions.length > 0 ? (
               <>
+                  <h3>Welcome Back!</h3>
+                  <h1>How are you feeling today?</h1>
                 {" "}
                 <CompulsionsInStateInputField
                   handleFieldChange={this.handleFieldChange}
@@ -108,6 +112,10 @@ class Home extends Component {
               </>
             ) : (
               <>
+                    <h1><i>Welcome! </i></h1><h2><i>Lets begin</i></h2>
+                   
+                    <h3><i>(How are you feeling today?)</i></h3>
+               {/* <h1>How are you feeling today?</h1> */}
                 <NoCompulsionsInStateInputField
                   handleFieldChange={this.handleFieldChange}
                 />

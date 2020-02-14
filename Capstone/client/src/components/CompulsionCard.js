@@ -16,8 +16,9 @@ class CompulsionCard extends Component {
     return (
       <div>
         <div>
-          <h2 className="mainCard">{this.props.compulsion.description}</h2>
-
+          
+        <strong> <h2 uppercase="true" className="mainCard">{this.props.compulsion.description}</h2> </strong>
+          
           <div className="buttonFlex">
             <DeleteCompulsion
               handleDelete={() => this.handleDelete(this.props.compulsion.compulsionId)} />

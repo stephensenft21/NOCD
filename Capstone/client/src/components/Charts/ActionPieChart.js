@@ -16,9 +16,9 @@ export default class ActionPieChart extends Component {
                     label: "Compulsion Data",
                     data: [Submitted, Resisted, Undo],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 99, 132, 0.2)', //Red
+                        'rgba(54, 162, 235, 0.2)', //Blue
+                        'rgba(255, 206, 86, 0.2)', //Yellow
                     ],
                 }
             ]
@@ -27,9 +27,9 @@ export default class ActionPieChart extends Component {
             <div >
                 <Doughnut
                     data={data}
-                    width={150}
-                    height={150}
-                   // options={{ maintainAspectRatio: false }}
+                    width={300}
+                    height={300}
+                   //options={{ maintainAspectRatio: false }}
                 />
             </div>
         )

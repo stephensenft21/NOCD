@@ -30,6 +30,7 @@ export  function SimpleSelect(props) {
 
   return (
     <div>
+      
       <FormControl className={classes.formControl}>
         <InputLabel id="demo-simple-select-helper-label">Compulsion</InputLabel>
         <Select
@@ -70,7 +71,7 @@ export  function CompulsionSelect(props) {
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-helper-label">Select</InputLabel>
+        <InputLabel id="demo-simple-select-helper-label">Action History</InputLabel>
         <Select
         name={props.compulsion}
           
