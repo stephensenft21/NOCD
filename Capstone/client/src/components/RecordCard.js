@@ -14,7 +14,11 @@ class RecordCard extends Component {
 
 
     //renders
-    render() {
+    render() 
+    
+    
+    {
+        
         let timeStamp = Moment(this.props.record.timeStamp).fromNow();
         return (
             <div>

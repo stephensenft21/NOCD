@@ -30,6 +30,7 @@ class Home extends Component {
   handleNumberfieldChange = evt => {
     const stateToChange = {};
     stateToChange[evt.target.id] = +evt.target.value;
+    
     this.setState(stateToChange);
     this.props.history.push(`/Compulsion/${evt.target.value}`);
   };
@@ -112,7 +113,7 @@ class Home extends Component {
               </>
             ) : (
               <>
-                    <h1><i>Welcome! </i></h1><h2><i>Lets begin</i></h2>
+                    <h1><i>Welcome! </i></h1><h2><i>Lets begin...</i></h2>
                    
                     <h3><i>(How are you feeling today?)</i></h3>
                {/* <h1>How are you feeling today?</h1> */}
