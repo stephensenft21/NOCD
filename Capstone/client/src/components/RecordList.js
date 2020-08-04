@@ -96,7 +96,7 @@ class RecordList extends Component {
   }
 
   render() {
-    console.log("This is from records List", this.props)
+
     return (
       <>
         <div>
@@ -110,9 +110,12 @@ class RecordList extends Component {
         <div />
         <div className="container">
           <div className="cardBackground">
-            <div className="cardContainer">
-              <h2>Patient Undo</h2>
-              <div className="ActionCard-One">
+            <div className="cardContainer UndoActionColor">
+              {/* Undo */}
+        
+              <h1>"UNDO"</h1>
+              <h3 className="H3-Border-Undo">Record Action</h3>
+              <div className="ActionCard-One ">
                 {this.state.records
                   .filter(record => {
                     return record.patientActionId === 3;
@@ -135,10 +138,11 @@ class RecordList extends Component {
             </div>
           </div>
 
-          <div className="cardBackground">
-            <div className="cardContainer">
-              <h2>Patient Submits</h2>
-              <div className="ActionCard-One">
+          <div className="cardBackground  ">
+            <div className=" cardContainer SubmitsActionColor">
+              <h1>"SUBMIT"</h1>
+              <h3 className="H3-Border-Submit">Record Action</h3>
+              <div className="ActionCard-One ">
                 {this.state.records
                   .filter(record => {
                     return record.patientActionId === 2;
@@ -162,9 +166,10 @@ class RecordList extends Component {
           </div>
 
           <div className="cardBackground">
-            <div className="cardContainer">
-              <h2>Patient Resists</h2>
-              <div className="ActionCard-One">
+            <div className="cardContainer ResistsActionColor">
+              <h1>"RESIST"</h1>
+              <h3 className="H3-Border-Resist"> Record Action</h3>
+              <div className="ActionCard-One ">
                 {this.state.records
                   .filter(record => {
                     return record.patientActionId === 1;

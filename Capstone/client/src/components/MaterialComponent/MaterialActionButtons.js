@@ -8,16 +8,20 @@ import Button from "@material-ui/core/Button";
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
-    alignItems: "center"
+    alignItems: "center",
+    size: "1px"
   },
   wrapper: {
     margin: theme.spacing(1),
-    position: "relative"
+    position: "relative",
+   
   },
+  
   buttonSuccess: {
-    backgroundColor: green[300],
+    
+    backgroundColor: [300],
     "&:hover": {
-      backgroundColor: orange[300]
+      backgroundColor: [200]
     }
   },
     fabProgress: {
@@ -28,7 +32,7 @@ const useStyles = makeStyles(theme => ({
       zIndex: 1,
     },
   buttonProgress: {
-    color: orange[500],
+    color: pink[500],
     position: "absolute",
     top: "50%",
     left: "50%",
@@ -60,7 +64,7 @@ export function SubmitsFunction(props) {
       timer.current = setTimeout(() => {
         setSuccess(true);
         setLoading(false);
-      }, 2000);
+      }, 700);
     }
   };
 
@@ -77,7 +81,7 @@ export function SubmitsFunction(props) {
             props.NewPatientActionSubmitted()
           }}
         >
-          Submit
+      Save Entry
         </Button>
         {loading && (
           <CircularProgress size={24} className={classes.buttonProgress} />
@@ -109,7 +113,7 @@ export function ResistFunction(props) {
       timer.current = setTimeout(() => {
         setSuccess(true);
         setLoading(false);
-      }, 2000);
+      },700);
     }
   };
 
@@ -126,7 +130,7 @@ export function ResistFunction(props) {
             props.NewPatientActionResist()
           }}
         >
-          Resist
+       Save Entry
         </Button>
         {loading && (
           <CircularProgress size={24} className={classes.buttonProgress} />
@@ -158,7 +162,7 @@ export function UndoFunction(props) {
       timer.current = setTimeout(() => {
         setSuccess(true);
         setLoading(false);
-      }, 2000);
+      }, 700);
     }
   };
 
@@ -175,10 +179,10 @@ export function UndoFunction(props) {
             props.NewPatientActionUndo()
           }}
         >
-          Undo
+      Save Entry
         </Button>
         {loading && (
-          <CircularProgress size={24} className={classes.buttonProgress} />
+          <CircularProgress size={30} className={classes.buttonProgress} />
         )}
       </div>
     </div>
@@ -207,7 +211,7 @@ export function DeleteCompulsion(props) {
       timer.current = setTimeout(() => {
         setSuccess(true);
         setLoading(false);
-      }, 2000);
+      }, 1000);
     }
   };
 

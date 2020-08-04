@@ -1,0 +1,21 @@
+
+.DashBoard-Divider-Yellow {
+    border-bottom: solid #ffce56;
+    display: block;
+
+    height: 1px;
+  }
+  .DashBoard-Divider-Red {
+    border-bottom: solid #FF6384;
+    display: block;
+    border-top: 1px solid #ccc;
+    height: 1px;
+  }
+  .DashBoard-Divider-Blue {
+    border-bottom: solid #36a2eb;
+    display: block; 
+
+    height: 100px;
+   
+  }
+  

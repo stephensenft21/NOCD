@@ -3,7 +3,7 @@ import { ListItemIcon, ListItemText, List, ListItem, Drawer } from '@material-ui
 import { Link, withRouter } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import routes from '../PracticeRoutes/routes';
+import routes from '../PracticeRoutes/Routes';
 
 export class MaterialNavDrawer extends Component {
   constructor(props) {

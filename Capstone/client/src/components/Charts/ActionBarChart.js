@@ -10,7 +10,7 @@ export default class ActionBarChart extends Component {
             labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
             datasets: [
                 {
-                    label: "Amount of Records",
+                    label: "Logged Actions During The Week",
                     data: this.props.records,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -25,8 +25,8 @@ export default class ActionBarChart extends Component {
             <div >
                 <Bar
                     data={data}
-                    width={150}
-                    height={150}
+                    width={400}
+                    height={400}
                 //options={{ maintainAspectRatio: false }}
                 />
             </div>
