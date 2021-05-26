@@ -101,17 +101,13 @@ class RecordList extends Component {
         <div>
           <CompulsionCard
             compulsion={this.state.compulsion}
-            // {...this.props}
             getData={this.getData}
-          />{" "}
+          />
         </div>
-
         <div />
         <div className="container">
           <div className="cardBackground">
             <div className="cardContainer UndoActionColor">
-              {/* Undo */}
-
               <h1>"UNDO"</h1>
               <h3 className="H3-Border-Undo">Record Action</h3>
               <div className="ActionCard-One ">
@@ -136,7 +132,6 @@ class RecordList extends Component {
               </div>
             </div>
           </div>
-
           <div className="cardBackground  ">
             <div className=" cardContainer SubmitsActionColor">
               <h1>"SUBMIT"</h1>
@@ -163,7 +158,6 @@ class RecordList extends Component {
               </div>
             </div>
           </div>
-
           <div className="cardBackground">
             <div className="cardContainer ResistsActionColor">
               <h1>"RESIST"</h1>

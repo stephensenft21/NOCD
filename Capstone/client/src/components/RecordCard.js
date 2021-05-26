@@ -20,12 +20,11 @@ class RecordCard extends Component {
             <div>
                 <div className="mainCard RecordCard">
                     <div className="cardColumn">
-                        <div>{this.props.record.id}</div>
+                        <div>{this.props.record.length}</div>
                         <div className="recordTimeStamp"> {timeStamp}  </div >
                         
                         <div className="recordCardButtonFlex">
-                        <DeleteRecord DeleteRecord ={() => this.DeleteRecord(this.props.record.recordId)}/>
-                            {/* <button className="button" type="button" onClick={() => this.DeleteRecord(this.props.record.recordId)}></button> */}
+                        {/* <DeleteRecord DeleteRecord ={() => this.DeleteRecord(this.props.record.recordId)}/> */}
                         </div>
                     </div>
                 </div>

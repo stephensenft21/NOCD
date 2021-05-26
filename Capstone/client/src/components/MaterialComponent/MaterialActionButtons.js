@@ -14,23 +14,22 @@ const useStyles = makeStyles(theme => ({
   wrapper: {
     margin: theme.spacing(1),
     position: "relative",
-   
   },
-  
+
   buttonSuccess: {
-    
+
     backgroundColor: [300],
     "&:hover": {
       backgroundColor: [200]
     }
   },
-    fabProgress: {
-      color: pink[500],
-      position: 'absolute',
-      top: -6,
-      left: -6,
-      zIndex: 1,
-    },
+  fabProgress: {
+    color: pink[500],
+    position: 'absolute',
+    top: -6,
+    left: -6,
+    zIndex: 1,
+  },
   buttonProgress: {
     color: pink[500],
     position: "absolute",
@@ -81,7 +80,7 @@ export function SubmitsFunction(props) {
             props.NewPatientActionSubmitted()
           }}
         >
-      Save Entry
+          Save Entry
         </Button>
         {loading && (
           <CircularProgress size={24} className={classes.buttonProgress} />
@@ -113,7 +112,7 @@ export function ResistFunction(props) {
       timer.current = setTimeout(() => {
         setSuccess(true);
         setLoading(false);
-      },700);
+      }, 700);
     }
   };
 
@@ -130,7 +129,7 @@ export function ResistFunction(props) {
             props.NewPatientActionResist()
           }}
         >
-       Save Entry
+          Save Entry
         </Button>
         {loading && (
           <CircularProgress size={24} className={classes.buttonProgress} />
@@ -179,7 +178,7 @@ export function UndoFunction(props) {
             props.NewPatientActionUndo()
           }}
         >
-      Save Entry
+          Save Entry
         </Button>
         {loading && (
           <CircularProgress size={30} className={classes.buttonProgress} />
@@ -226,10 +225,10 @@ export function DeleteCompulsion(props) {
           onClick={() => {
             handleButtonClick();
             props.handleDelete();
-     
+
           }}
         >
-          Delete
+          Remove {props.compulsion.description}
         </Button>
         {loading && (
           <CircularProgress size={24} className={classes.buttonProgress} />
@@ -275,7 +274,7 @@ export function DeleteRecord(props) {
           disabled={loading}
           onClick={() => {
             handleButtonClick();
-           
+
             props.DeleteRecord()
           }}
         >

@@ -3,10 +3,8 @@ import API from "../API/dataManager";
 import ActionPieChart from "./Charts/ActionPieChart";
 import ActionBarChart from "./Charts/ActionBarChart";
 import ActionLineChart from "./Charts/ActionLineChart";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import { withRouter } from "react-router-dom";
-import { FormControl } from "@material-ui/core";
 import "./DashBoard.css"
 class Dashboard extends Component {
   state = {
@@ -47,9 +45,7 @@ class Dashboard extends Component {
           <Grid item xs={7}>
             <ActionPieChart records={this.state.records} />
           </Grid>
-{/* <hr className="DashBoard-Divider-Yellow"></hr>
-<hr className="DashBoard-Divider-Red"></hr> */}
-<hr className="DashBoard-Divider-Blue"></hr>
+          <hr className="DashBoard-Divider-Blue"></hr>
           <Grid
             direction={"column"}
             justify="flex-start"
@@ -60,11 +56,7 @@ class Dashboard extends Component {
               <ActionBarChart records={this.state.records} />
             </Grid>
           </Grid>
-
-          {""}
           <hr className="DashBoard-Divider-Blue"></hr>
-          {""}
-
           <Grid
             direction={"column"}
             justify="flex-start"
