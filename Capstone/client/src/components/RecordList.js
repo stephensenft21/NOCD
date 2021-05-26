@@ -20,7 +20,6 @@ class RecordList extends Component {
     records: []
   };
 
-  //(https://localhost:5001/api/v1/Compulsion/1?includes=records)
   getCompulsionAndPatientsRecordData = () => {
     API.getOneResourceWithChild(
       "Compulsions",
@@ -57,7 +56,7 @@ class RecordList extends Component {
     const newRecord = {
       compulsionId: parseInt(this.props.match.params.compulsionId),
       patientActionId: 1,
-     
+
     };
     API.PostData("Records", newRecord).then(() =>
       API.getOneResourceWithChild(
@@ -112,7 +111,7 @@ class RecordList extends Component {
           <div className="cardBackground">
             <div className="cardContainer UndoActionColor">
               {/* Undo */}
-        
+
               <h1>"UNDO"</h1>
               <h3 className="H3-Border-Undo">Record Action</h3>
               <div className="ActionCard-One ">
@@ -133,7 +132,7 @@ class RecordList extends Component {
                   ))}
               </div>
               <div className="cardButton">
-                <UndoFunction NewPatientActionUndo={() => this.NewPatientActionUndo()}  />{" "}
+                <UndoFunction NewPatientActionUndo={() => this.NewPatientActionUndo()} />{" "}
               </div>
             </div>
           </div>
@@ -160,7 +159,7 @@ class RecordList extends Component {
                   ))}
               </div>
               <div className="cardButton">
-                <SubmitsFunction  NewPatientActionSubmitted={() => this.NewPatientActionSubmitted()} />{" "}
+                <SubmitsFunction NewPatientActionSubmitted={() => this.NewPatientActionSubmitted()} />{" "}
               </div>
             </div>
           </div>
@@ -188,7 +187,7 @@ class RecordList extends Component {
               </div>
               <div className="cardButton">
                 <ResistFunction
-                NewPatientActionResist={() => this.NewPatientActionResist()} />{" "}
+                  NewPatientActionResist={() => this.NewPatientActionResist()} />{" "}
               </div>
             </div>
           </div>

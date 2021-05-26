@@ -6,11 +6,6 @@
     <AssemblyName>Capstone</AssemblyName>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Migrations\20200203153956_Added-intial-models.cs" />
-    <Compile Remove="Migrations\20200203153956_Added-intial-models.Designer.cs" />
-  </ItemGroup>
-
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0" />
